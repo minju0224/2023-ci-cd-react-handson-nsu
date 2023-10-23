@@ -1,0 +1,22 @@
+name: Lint
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  lint:
+    name: Lint
+    run-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v4
+
+      - uses: action/setup-node@v3
+        with:
+        node-version: 20
+
+      - run: npm install
+
+      - run: npm rum lint
+      
